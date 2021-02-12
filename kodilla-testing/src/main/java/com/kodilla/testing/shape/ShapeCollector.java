@@ -3,9 +3,6 @@ package com.kodilla.testing.shape;
 import java.util.ArrayList;
 
 public class ShapeCollector {
-Circle circle = new Circle(4);
-Square square = new Square(3);
-Triangle triangle = new Triangle(3,4);
 
     ArrayList<Shape> list = new ArrayList<>();
 
@@ -17,13 +14,11 @@ Triangle triangle = new Triangle(3,4);
         list.remove(shape);
     }
 
-    public void getFigure(int n) {
-        list.get(n);
+    public String getFigure(int n) {
+        return list.get(n).getShapeName();
     }
 
     public String showFigures(){
-
-       return circle.getShapeName() + ", " + square.getShapeName() + ", " + triangle.getShapeName();
-
+     return list.get(0).getShapeName() + ", " + list.get(1).getShapeName() + ", " + list.get(2).getShapeName();
     }
 }
