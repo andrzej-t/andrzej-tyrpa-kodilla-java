@@ -101,6 +101,7 @@ class ForumTestSuite {
 
         @Test
         void testAddComment() {
+
             //Given
             ForumUser forumUser = new ForumUser("mrsmith", "John Smith");
             ForumPost thePost = new ForumPost("Hello everyone, " +
