@@ -63,10 +63,9 @@ public class ShapeCollectorTestSuite {
             ShapeCollector shapeCollector = new ShapeCollector();
             Square square = new Square(4);
             shapeCollector.addFigure(square);
-            //When
-            shapeCollector.getFigure(0);
+
             //Then
-            Assertions.assertEquals(square.getShapeName(), shapeCollector.getFigure(0));
+            Assertions.assertEquals(square, shapeCollector.getFigure(0));
 
         }
 
