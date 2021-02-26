@@ -1,9 +1,7 @@
 package com.kodilla.stream.array;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.OptionalDouble;
 
 public class ArrayOperationsTestSuite {
 
@@ -31,6 +29,6 @@ public class ArrayOperationsTestSuite {
         numbers[18] = 5;
         numbers[19] = 5;
         double expected = ArrayOperations.getAverage(numbers);
-        assert 4.5==expected;
+        Assertions.assertEquals(expected, 4.5);
     }
 }
