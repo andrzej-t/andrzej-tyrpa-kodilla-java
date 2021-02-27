@@ -7,10 +7,8 @@ package com.kodilla.testing.forum.statistics;
         double averagePostsForUser;
         double averageCommentsForUser;
         double averageCommentsForPost;
-        private Statistics statistics;
 
         public StatisticsCalculator(Statistics statisticsMock) {
-            this.statistics = statisticsMock;
         }
 
         public void calculateAdvStatistics(Statistics statistics) {
