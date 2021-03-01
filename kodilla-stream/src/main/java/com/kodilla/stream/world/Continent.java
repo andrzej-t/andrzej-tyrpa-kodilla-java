@@ -12,8 +12,6 @@ public final class Continent {
         this.countries=countries;
     }
 
-    Country country = new Country(getCountry().getCountryName(), getCountry().getPeopleQuantity());
-
     public String getContinentName() {
         return continentName;
     }
@@ -22,7 +20,4 @@ public final class Continent {
         return countries;
     }
 
-    public Country getCountry() {
-        return country;
-    }
 }

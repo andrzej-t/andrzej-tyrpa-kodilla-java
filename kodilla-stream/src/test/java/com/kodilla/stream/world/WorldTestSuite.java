@@ -13,8 +13,8 @@ public class WorldTestSuite {
     @Test
     void testGetPeopleQuantity() {
         //Given
-       Country countryOfNorthAmerica1 = new Country("USA", BigDecimal.valueOf(222222222));
-       Country countryOfNorthAmerica2 = new Country("Canada", BigDecimal.valueOf(222222222));
+       Country countryOfNorthAmerica1 = new Country("USA", BigDecimal.valueOf(200000000));
+       Country countryOfNorthAmerica2 = new Country("Canada", BigDecimal.valueOf(50000000));
        Country countriesOfAsia1 = new Country("China", BigDecimal.valueOf(2000000000));
        Country countriesOfAsia2 = new Country("Mongolia", BigDecimal.valueOf(4000000));
 
@@ -38,8 +38,8 @@ public class WorldTestSuite {
 
        //When
         BigDecimal result = world.getPeopleQuantity();
-        BigDecimal expected = BigDecimal.valueOf(444444444);
-        
+        BigDecimal expected = BigDecimal.valueOf(2254000000L);
+
         //Then
         Assertions.assertEquals(result, expected);
 

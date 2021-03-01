@@ -2,7 +2,9 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTestSuite {
@@ -27,7 +29,7 @@ class BoardTestSuite {
         //tasks
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
-                        "the temperaure from external service",
+                        "the temperature from external service",
                 user1,
                 user2,
                 LocalDate.now().minusDays(20),
@@ -80,5 +82,23 @@ class BoardTestSuite {
         project.addTaskList(taskListInProgress);
         project.addTaskList(taskListDone);
         return project;
+    }
+
+    @Test
+    void testAddTaskListFindUsersTasks() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        User user = new User("developer1", "John Smith");     // [1]
+        List<Task> tasks = project.getTaskLists().stream()    // [2]
+                .flatMap(l -> l.getTasks().stream())               // [3]
+                .filter(t -> t.getAssignedUser().equals(user))     // [4]
+                .collect(toList());                                // [5]
+
+        //Then
+        assertEquals(2, tasks.size());
+        assertEquals(user, tasks.get(0).getAssignedUser());
+        assertEquals(user, tasks.get(1).getAssignedUser());
     }
 }
