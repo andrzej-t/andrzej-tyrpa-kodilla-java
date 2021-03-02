@@ -1,11 +1,14 @@
 package com.kodilla.stream.portfolio;
 
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.stream.Collectors.*;
+import static java.time.temporal.ChronoUnit.DAYS;
+import static java.util.stream.Collectors.toList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTestSuite {
@@ -155,19 +158,16 @@ class BoardTestSuite {
         long numberOfTasks = project.getTaskLists().stream()
                 .count();
 
-        inProgressTasks.add(new TaskList("In progress"));
         long sumDaysForTasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
 
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(Task -> Task.getCreated())
-                // What to do here???
-                .sum;
-
+                .mapToLong(d -> DAYS.between(d.getCreated(), LocalDate.now()))
+                .sum();
 
         long average = sumDaysForTasks / numberOfTasks;
 
         //Then
         assertEquals(10, average);
-
     }
 }
