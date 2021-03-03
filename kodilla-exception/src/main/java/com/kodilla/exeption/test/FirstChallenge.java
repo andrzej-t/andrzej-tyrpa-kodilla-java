@@ -1,4 +1,4 @@
-package com.kodilla.exception.test;
+package com.kodilla.exeption.test;
 
 public class FirstChallenge {
 
@@ -27,4 +27,3 @@ public class FirstChallenge {
         }
     }
 }
-
