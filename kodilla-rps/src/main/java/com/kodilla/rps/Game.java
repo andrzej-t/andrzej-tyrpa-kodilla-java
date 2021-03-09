@@ -1,5 +1,6 @@
 package com.kodilla.rps;
 
+import java.lang.reflect.Array;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -108,8 +109,13 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter number of rounds you want to win in order to finish game:");
-        totalRounds = scanner.nextInt();
-        System.out.println("You must win: " + totalRounds + " rounds.");
+        if (scanner.hasNextInt()) {
+            totalRounds = scanner.nextInt();
+            System.out.println("You must win: " + totalRounds + " rounds.");
+        } else {
+            System.out.println("Enter numbers only!!!");
+            start();
+        }
     }
 
     public void start() {
@@ -162,8 +168,16 @@ public class Game {
                 end=true;}
 
            }
-            if (youWon==totalRounds) {
+            if (youWon==totalRounds && youWon>computerWon) {
                 System.out.println("Congratulations, You won the game!!! ");
+                System.out.println("\n----------- END -----------");
+                end=true;
+            } else if (youWon==totalRounds && youWon<computerWon) {
+                System.out.println("Unfortunatelly, Computer won the game!!! ");
+                System.out.println("\n----------- END -----------");
+                end=true;
+            } else if (youWon==totalRounds && youWon==computerWon) {
+                System.out.println("Draw!!!");
                 System.out.println("\n----------- END -----------");
                 end=true;
             }
