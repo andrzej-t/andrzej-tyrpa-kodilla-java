@@ -157,7 +157,7 @@ public class Game {
                     }
 
                 System.out.println(draw);
-            if (youWon==totalRounds || end==true) {
+            if (youWon==totalRounds) {
 
                 end=true;}
 
@@ -169,9 +169,6 @@ public class Game {
             }
 
         }
-
-    //   end = true;
-
 
     }
 }
