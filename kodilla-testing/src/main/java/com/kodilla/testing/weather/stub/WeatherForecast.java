@@ -6,6 +6,7 @@ public class WeatherForecast {
     private Temperatures temperatures;
 
     public WeatherForecast(Temperatures temperatures) {
+
         this.temperatures = temperatures;
     }
 
