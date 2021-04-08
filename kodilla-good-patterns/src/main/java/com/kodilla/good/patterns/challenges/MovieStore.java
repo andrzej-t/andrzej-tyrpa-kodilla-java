@@ -7,7 +7,7 @@ import java.util.Map;
 
 final class MovieStore {
 
-    public static Map<String, List<String>> getMovies() {
+    public Map<String, List<String>> getMovies() {
         final List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -29,9 +29,11 @@ final class MovieStore {
     }
 
     public static void main(String[] args) {
+        MovieStore movieStore = new MovieStore();
 
-    getMovies().values().stream().iterator()
-            .forEachRemaining(s -> System.out.print(s+"!"));
+    movieStore.getMovies().values().stream()
+            .flatMap(strings -> strings.stream())
+            .forEach(s -> System.out.print(s+"! "));
     }
 
 }
