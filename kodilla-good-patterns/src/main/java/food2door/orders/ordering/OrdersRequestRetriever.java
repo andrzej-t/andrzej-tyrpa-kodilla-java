@@ -5,10 +5,9 @@ import food2door.orders.suppliers.ExtraFoodShop;
 import food2door.orders.suppliers.Supplier;
 
 public class OrdersRequestRetriever {
-    public OrdersRequest retrieve() {
+    public OrdersRequest retrieve(Supplier supplier) {
 
-        Supplier supplier;
-        supplier = new ExtraFoodShop();
+
         Goods goods = supplier.getListOfGoods().get(1);
 
         System.out.println("Supplier: " + supplier.getSupplierName() );
