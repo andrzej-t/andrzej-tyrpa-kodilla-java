@@ -1,12 +1,8 @@
 package flights;
 
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 public class Flight {
-
-    private Set<Flight> flightSet = new HashSet<>();
 
     private String departureAirport;
     private String arrivalAirport;
@@ -27,7 +23,7 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight{" +
-                "flightSet=" + flightSet +
+                "flightSet=" +
                 ", departureAirport='" + departureAirport + '\'' +
                 ", arrivalAirport='" + arrivalAirport + '\'' +
                 '}';
@@ -38,12 +34,12 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return Objects.equals(flightSet, flight.flightSet) && Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
+        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightSet, departureAirport, arrivalAirport);
+        return Objects.hash(departureAirport, arrivalAirport);
     }
 
 }

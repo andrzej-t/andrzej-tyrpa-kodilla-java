@@ -1,11 +1,10 @@
 package flights;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FlightSearchEngine {
     private Connections connections = new Connections();
-    private Set<Flight> flightSet = connections.flightSet();
+    private final Set<Flight> flightSet = connections.flightSet();
 
     public void searchToArrivalAirport(String airport) {
         System.out.println("\nSearching flights to arrival airport: ");
