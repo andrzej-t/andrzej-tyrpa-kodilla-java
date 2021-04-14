@@ -8,7 +8,7 @@ public class Main {
 
         flightSearchEngine.searchDepartureFromAirport("Gdańsk");
         flightSearchEngine.searchToArrivalAirport("Wrocław");
-        flightSearchEngine.searchWithStopoverFlight("Wrocław", "Gdańsk");
+        flightSearchEngine.searchWithStopoverFlight("Kraków", "Wrocław", "Gdańsk");
 
     }
 }

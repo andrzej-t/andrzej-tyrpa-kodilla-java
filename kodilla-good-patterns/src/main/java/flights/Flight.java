@@ -22,9 +22,8 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightSet=" +
-                ", departureAirport='" + departureAirport + '\'' +
+        return "Flight{ " +
+                "departureAirport='" + departureAirport + '\'' +
                 ", arrivalAirport='" + arrivalAirport + '\'' +
                 '}';
     }

@@ -1,11 +1,13 @@
 package flights;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FlightSearchEngine {
     private Connections connections = new Connections();
     private final Set<Flight> flightSet = connections.flightSet();
+    private final Set<Flight> flightSet1 = connections.flightSet();
+    private final Set<Flight> flightSet2 = connections.flightSet();
+    private final Set<Flight> flightSet3 = connections.flightSet();
 
     public void searchToArrivalAirport(String airport) {
         System.out.println("\nSearching for flights to arrival airport: ");
@@ -21,24 +23,19 @@ public class FlightSearchEngine {
                 .forEach(System.out::println);
     }
 
-    public void searchWithStopoverFlight(String airport1, String airport2) {
+    public void searchWithStopoverFlight(String airport1, String airport2, String airport3) {
         System.out.println("\nSearching for a flight with a stopover: ");
 
-        Set<Flight> flightSet1 = flightSet.stream()
-                .filter(a -> a.getArrivalAirport().equals(airport1))
-                .collect(Collectors.toSet());
-        Set<Flight> flightSet2 = flightSet.stream()
+        flightSet1.stream()
+                .filter(a -> a.getDepartureAirport().equals(airport1))
                 .filter(a -> a.getArrivalAirport().equals(airport2))
-                .collect(Collectors.toSet());
+                .forEach(System.out::println);
 
-        for(Flight flight1 : flightSet1){
-            for(Flight flight2 : flightSet2){
-                if(flight1.getArrivalAirport().equals(flight2.getDepartureAirport()) && airport1.equals(flight1.getDepartureAirport()) && airport2.equals(flight2.getArrivalAirport())) {
-                    System.out.println(flight1);
-                    System.out.println(flight2);
-                }
-            }
-        }
+
+        flightSet2.stream()
+                .filter(a -> a.getDepartureAirport().equals(airport2))
+                .filter(a -> a.getArrivalAirport().equals(airport3))
+                .forEach(System.out::println);
 
     }
 
