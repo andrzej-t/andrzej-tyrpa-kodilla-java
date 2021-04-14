@@ -33,7 +33,7 @@ public class FlightSearchEngine {
 
         for(Flight flight1 : flightSet1){
             for(Flight flight2 : flightSet2){
-                if(flight1.getArrivalAirport().equals(flight2.getDepartureAirport())) {
+                if(flight1.getArrivalAirport().equals(flight2.getDepartureAirport()) && airport1.equals(flight1.getDepartureAirport()) && airport2.equals(flight2.getArrivalAirport())) {
                     System.out.println(flight1);
                     System.out.println(flight2);
                 }
