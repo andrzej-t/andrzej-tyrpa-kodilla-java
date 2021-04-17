@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 public class CalculatorTestSuite {
 
@@ -13,12 +15,16 @@ public class CalculatorTestSuite {
     @Test
     void testCalculations() {
         //Given
+
         //When
-        calculator.display.displayValue(calculator.a + calculator.b);
-        calculator.display.displayValue(calculator.a - calculator.b);
-        calculator.display.displayValue(calculator.a * calculator.b);
-        calculator.display.displayValue(calculator.a / calculator.b);
+        double result1 = calculator.add(calculator.a, calculator.b);
+        double result2 = calculator.sub(calculator.a, calculator.b);
+        double result3 = calculator.mul(calculator.a, calculator.b);
+        double result4 = calculator.div(calculator.a, calculator.b);
         //Then
-        //do nothing
+        assertEquals(6, result1);
+        assertEquals(0, result2);
+        assertEquals(9, result3);
+        assertEquals(1, result4);
     }
 }

@@ -9,7 +9,7 @@ public class Calculator {
     @Autowired
     Display display;
 
-    double a = 2.0;
+    double a = 3.0;
     double b = 3.0;
 
     public double add(double a, double b) {
