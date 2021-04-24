@@ -62,11 +62,6 @@ public final class Bigmac {
             possibleIngredients.add("prawns");
             possibleIngredients.add("cheese");
 
-            int ingredientIndex = 0;
-            for (int i=0; i<ingredients.size(); i++) {
-                ingredientIndex = i;
-            }
-
             Bigmac bigmacIngredients = new Bigmac(bun, burgers, sauce, ingredients);
 
             if (possibleBun.contains(bigmacIngredients.getBun()) &&
