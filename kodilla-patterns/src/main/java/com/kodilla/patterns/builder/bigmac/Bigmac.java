@@ -6,13 +6,13 @@ import java.util.List;
 public final class Bigmac {
 
     private final String bun;
-    private final String burgers;
+    private final int burgers;
     private final String sauce;
     private List<String> ingredients = new ArrayList<>();
 
     public static class BigmacBuilder {
         private String bun;
-        private String burgers;
+        private int burgers;
         private String sauce;
         private List<String> ingredients = new ArrayList<>();
 
@@ -21,7 +21,7 @@ public final class Bigmac {
             return this;
         }
 
-        public BigmacBuilder burgers(String burgers) {
+        public BigmacBuilder burgers(int burgers) {
             this.burgers = burgers;
             return this;
         }
@@ -37,16 +37,22 @@ public final class Bigmac {
         }
 
         public Bigmac build() {
+
+            List<String> possibleBun = new ArrayList<>();
+            possibleBun.add("bun with sesame");
+            possibleBun.add("bun without sesame");
+
+            List<Integer> possibleBurgers = new ArrayList<>();
+            possibleBurgers.add(1);
+            possibleBurgers.add(2);
+            possibleBurgers.add(3);
+
+            List<String> possibleSauce = new ArrayList<>();
+            possibleSauce.add("standard sauce");
+            possibleSauce.add("BBQ sauce");
+            possibleSauce.add("Thousand Island dressing");
+
             List<String> possibleIngredients = new ArrayList<>();
-            possibleIngredients.add("bun with sesame");
-            possibleIngredients.add("bun without sesame");
-            possibleIngredients.add("one burger");
-            possibleIngredients.add("two burgers");
-            possibleIngredients.add("three burgers");
-            possibleIngredients.add("standard sauce");
-            possibleIngredients.add("BBQ sauce");
-            possibleIngredients.add("Thousand Island dressing");
-            possibleIngredients.add("Thousand Island dressing");
             possibleIngredients.add("lettuce");
             possibleIngredients.add("onion");
             possibleIngredients.add("beckon");
@@ -56,18 +62,17 @@ public final class Bigmac {
             possibleIngredients.add("prawns");
             possibleIngredients.add("cheese");
 
-
-            Bigmac bigmacIngredients = new Bigmac(bun, burgers, sauce, ingredients);
-
             int ingredientIndex = 0;
             for (int i=0; i<ingredients.size(); i++) {
                 ingredientIndex = i;
             }
 
-            if (possibleIngredients.contains(bigmacIngredients.getBun()) &&
-            possibleIngredients.contains(bigmacIngredients.getBurgers()) &&
-            possibleIngredients.contains(bigmacIngredients.getSauce()) &&
-            possibleIngredients.contains(bigmacIngredients.getIngredients().get(ingredientIndex))) {
+            Bigmac bigmacIngredients = new Bigmac(bun, burgers, sauce, ingredients);
+
+            if (possibleBun.contains(bigmacIngredients.getBun()) &&
+                    possibleBurgers.contains(bigmacIngredients.getBurgers()) &&
+                    possibleSauce.contains(bigmacIngredients.getSauce()) &&
+                    possibleIngredients.containsAll(bigmacIngredients.getIngredients())) {
                 return bigmacIngredients;
             } else {
                 throw new IllegalStateException ("You can order ingredients only from the menu... Choose bun, how many burgers, sauce and burger toppings!");
@@ -75,7 +80,7 @@ public final class Bigmac {
         }
     }
 
-    private Bigmac(final String bun, final String burgers, final String sauce, List<String> ingredients) {
+    private Bigmac(final String bun, final int burgers, final String sauce, List<String> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
@@ -86,7 +91,7 @@ public final class Bigmac {
         return bun;
     }
 
-    public String getBurgers() {
+    public int getBurgers() {
         return burgers;
     }
 

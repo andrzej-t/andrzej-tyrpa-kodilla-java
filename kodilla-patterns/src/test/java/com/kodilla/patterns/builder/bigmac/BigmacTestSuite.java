@@ -10,7 +10,7 @@ public class BigmacTestSuite {
         //Given
         Bigmac bigmac = new Bigmac.BigmacBuilder()
                 .bun("bun with sesame")
-                .burgers("one burger")
+                .burgers(1)
                 .sauce("BBQ sauce")
                 .ingredient("cheese")
                 .ingredient("cucumber")
