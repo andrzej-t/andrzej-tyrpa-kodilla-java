@@ -25,7 +25,7 @@ class DbManagerTestSuite {
         DbManager dbManager = DbManager.getInstance();
 
         //When
-        String sqlQuery = "SELECT * FROM USERS";
+        String sqlQuery = "SELECT * FROM kodilla_course.USERS";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
 
@@ -48,7 +48,7 @@ class DbManagerTestSuite {
         DbManager dbManager = DbManager.getInstance();
 
         //When
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME FROM USERS U JOIN POSTS P on U.ID = P.USER_ID GROUP BY U.FIRSTNAME, U.LASTNAME HAVING COUNT(*) >= 2;";
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME FROM kodilla_course.USERS U JOIN kodilla_course.POSTS P on U.ID = P.USER_ID GROUP BY U.FIRSTNAME, U.LASTNAME HAVING COUNT(*) >= 2;";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
 
