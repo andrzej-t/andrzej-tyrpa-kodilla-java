@@ -10,7 +10,7 @@ public class ExceptionHandling {
         } catch (Exception e) {
             System.out.println("Oh no! Something went wrong! Error:" + e);
         } finally {
-            System.out.println("Here is an exception!");
+            System.out.println("Checking exceptions!");
         }
 
     }

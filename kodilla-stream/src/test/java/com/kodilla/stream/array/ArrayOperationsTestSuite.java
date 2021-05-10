@@ -7,6 +7,7 @@ public class ArrayOperationsTestSuite {
 
     @Test
     void testGetAverage()  {
+        //Given
         int[] numbers = new int[20];
         numbers[0] = 4;
         numbers[1] = 4;
@@ -28,7 +29,11 @@ public class ArrayOperationsTestSuite {
         numbers[17] = 5;
         numbers[18] = 5;
         numbers[19] = 5;
+
+        //When
         double expected = ArrayOperations.getAverage(numbers);
+
+        //Then
         Assertions.assertEquals(expected, 4.5);
     }
 }

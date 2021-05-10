@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class StatisticsCalculatorTestSuite {
 
     @Mock
-    private Statistics statisticsMock = mock(Statistics.class);
+    private final Statistics statisticsMock = mock(Statistics.class);
 
     @Test
     void testCalculateAdvStatisticsAveragePostForUserWhen0Posts() {
@@ -27,7 +27,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 5; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -52,7 +52,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 10; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -76,7 +76,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 100; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -100,7 +100,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 1; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -124,7 +124,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 100; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -148,7 +148,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 10; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
@@ -172,7 +172,7 @@ public class StatisticsCalculatorTestSuite {
         for (int i = 0; i < 10; i++) {
             names.add("name");
         }
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.usersNames()).thenReturn(names);
