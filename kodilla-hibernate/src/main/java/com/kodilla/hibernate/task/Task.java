@@ -8,6 +8,10 @@ import java.util.Date;
 @Table(name = "TASKS")
 public class Task {
 
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name = "ID", unique = true)
     private int id;
     private String description;
     private Date created;
@@ -22,10 +26,6 @@ public class Task {
     public Task() {
     }
 
-    @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
