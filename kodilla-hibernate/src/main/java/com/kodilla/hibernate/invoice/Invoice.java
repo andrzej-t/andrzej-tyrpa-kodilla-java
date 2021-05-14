@@ -15,8 +15,9 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(String number) {
+    public Invoice(String number, List<Item> items) {
         this.number = number;
+        this.items = items;
     }
 
     @Id
