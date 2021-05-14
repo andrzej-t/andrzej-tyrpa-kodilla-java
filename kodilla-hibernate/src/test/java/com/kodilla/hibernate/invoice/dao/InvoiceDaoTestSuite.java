@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,30 +19,33 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
-    @Autowired
-    private ItemDao itemDao;
 
     @Test
     void testInvoiceDaoSave() {
         //Given
-        Product product = new Product("pencil");
-        Item item = new Item(product, BigDecimal.valueOf(2.3), 4,BigDecimal.valueOf(9.2));
-        Invoice invoice = new Invoice("2021/05/14/001", List.of(item));
+        Product product1 = new Product("pencil");
+        Product product2 = new Product("pen");
+        Item item1 = new Item(product1, BigDecimal.valueOf(1.5), 4,BigDecimal.valueOf(6));
+        Item item2 = new Item(product2, BigDecimal.valueOf(2.3), 4,BigDecimal.valueOf(9.2));
+        Invoice invoice = new Invoice("2021/05/14/001");
+
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+
+        List<Item> itemList = new ArrayList<>();
+        itemList.add(item1);
+        itemList.add(item2);
+        invoice.setItems(itemList);
 
         //When
         invoiceDao.save(invoice);
-        itemDao.save(item);
+        int id = invoice.getId();
 
         //Then
-        int id = invoice.getId();
         Assertions.assertEquals(1,invoiceDao.count() );
-
-        int idItem = item.getId();
-        Assertions.assertEquals(1, itemDao.count());
 
         //CleanUp
         invoiceDao.deleteById(id);
-        itemDao.deleteById(idItem);
 
     }
 }

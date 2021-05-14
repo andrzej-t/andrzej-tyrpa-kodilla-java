@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "ITEMS")
 public class Item {
 
     private int id;
@@ -15,14 +15,14 @@ public class Item {
     private BigDecimal value;
     private Invoice invoice;
 
-    public Item() {
-    }
-
     public Item(Product product, BigDecimal price, int quantity, BigDecimal value) {
         this.product = product;
         this.price = price;
         this.quantity = quantity;
         this.value = value;
+    }
+
+    public Item() {
     }
 
     @Id
@@ -37,7 +37,7 @@ public class Item {
         this.id = id;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -47,7 +47,7 @@ public class Item {
         this.product = product;
     }
 
-    @Column(name="PRICE")
+    @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
@@ -56,7 +56,7 @@ public class Item {
         this.price = price;
     }
 
-    @Column(name="QUANTITY")
+    @Column(name = "QUANTITY")
     public int getQuantity() {
         return quantity;
     }
@@ -65,7 +65,7 @@ public class Item {
         this.quantity = quantity;
     }
 
-    @Column(name="VALUE")
+    @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
     }
@@ -74,8 +74,8 @@ public class Item {
         this.value = value;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "INVOICE_ID")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "INVOICE_ID", nullable = false)
     public Invoice getInvoice() {
         return invoice;
     }

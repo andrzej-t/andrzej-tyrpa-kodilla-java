@@ -4,17 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "PRODUCTS")
 public class Product {
 
     private int id;
     private String name;
 
-    public Product() {
-    }
-
     public Product(String name) {
         this.name = name;
+    }
+
+    public Product() {
     }
 
     @Id
@@ -25,16 +25,16 @@ public class Product {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @Column(name = "PRODUCT_NAME")
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

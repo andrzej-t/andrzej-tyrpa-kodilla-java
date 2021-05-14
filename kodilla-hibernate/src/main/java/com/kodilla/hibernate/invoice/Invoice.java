@@ -5,19 +5,18 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name = "INVOICES")
 public class Invoice {
 
     private int id;
     private String number;
     private List<Item> items;
 
-    public Invoice() {
+    public Invoice(String number) {
+        this.number = number;
     }
 
-    public Invoice(String number, List<Item> items) {
-        this.number = number;
-        this.items = items;
+    public Invoice() {
     }
 
     @Id
@@ -28,7 +27,7 @@ public class Invoice {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
@@ -37,7 +36,7 @@ public class Invoice {
         return number;
     }
 
-    public void setNumber(String number) {
+    private void setNumber(String number) {
         this.number = number;
     }
 
@@ -45,7 +44,7 @@ public class Invoice {
             targetEntity = Item.class,
             mappedBy = "invoice",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     public List<Item> getItems() {
         return items;
