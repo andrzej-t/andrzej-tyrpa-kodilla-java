@@ -19,7 +19,6 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
-
     @Test
     void testInvoiceDaoSave() {
         //Given
@@ -40,9 +39,14 @@ public class InvoiceDaoTestSuite {
         //When
         invoiceDao.save(invoice);
         int id = invoice.getId();
+        int itemsSize = invoice.getItems().size();
+        Invoice invoiceDB = invoiceDao.findById(id);
+        String productDB = invoiceDB.getItems().get(0).getProduct().getName();
 
         //Then
         Assertions.assertEquals(1,invoiceDao.count() );
+        Assertions.assertEquals("pencil", productDB);
+        Assertions.assertEquals(itemsSize, invoiceDB.getItems().size());
 
         //CleanUp
         invoiceDao.deleteById(id);
