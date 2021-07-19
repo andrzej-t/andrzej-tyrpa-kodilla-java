@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.searchCompanyByNameFragment",
+        query = "FROM Company WHERE name LIKE CONCAT('%',:FRAGMENT,'%') "
+)
+
 @NamedNativeQuery(
         name = "Company.retrieveCompanyWithThreeFirstSigns",
         query = "SELECT * FROM companies" + " WHERE LEFT(company_name, 3) = :company_name",
