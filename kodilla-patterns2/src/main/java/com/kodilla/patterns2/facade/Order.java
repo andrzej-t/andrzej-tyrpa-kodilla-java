@@ -13,13 +13,13 @@ public class Order {
     private boolean isVerified;
     private boolean isSubmitted;
 
-    public Order(ProductService productService, Long orderId, Long userId) {
-        this.productService = productService;
+    public Order(Long orderId, Long userId, ProductService productService) {
         this.orderId = orderId;
         this.userId = userId;
+        this.productService = productService;
     }
 
-    public BigDecimal calculateValue() {
+    public BigDecimal caclulateValue() {
         BigDecimal sum = BigDecimal.ZERO;
         for (Item item : items) {
             sum = sum.add(productService.getPrice(item.getProductId())
@@ -45,4 +45,6 @@ public class Order {
     public boolean isSubmitted() { return isSubmitted; }
 
     public void setSubmitted(boolean submitted) { isSubmitted = submitted; }
+
+
 }
