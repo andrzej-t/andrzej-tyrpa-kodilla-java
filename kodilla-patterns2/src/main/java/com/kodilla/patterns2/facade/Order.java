@@ -19,7 +19,7 @@ public class Order {
         this.productService = productService;
     }
 
-    public BigDecimal caclulateValue() {
+    public BigDecimal calculateValue() {
         BigDecimal sum = BigDecimal.ZERO;
         for (Item item : items) {
             sum = sum.add(productService.getPrice(item.getProductId())
